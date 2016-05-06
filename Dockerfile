@@ -29,6 +29,7 @@ RUN npm install --production
 
 # Environment
 ENV TASKS_FRONT_PORT 8000
+ENV JWT_SECRET Louie Louie, oh no, I got to go
 
 # Startup
 CMD ["node", "server.js"]
