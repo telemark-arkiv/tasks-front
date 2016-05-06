@@ -31,5 +31,7 @@ RUN npm install --production
 ENV TASKS_FRONT_PORT 8000
 ENV JWT_SECRET Louie Louie, oh no, I got to go
 
+EXPOSE 8000
+
 # Startup
-CMD ["node", "server.js"]
+CMD ["node", "server.js", "--seneca-log=type:act"]
