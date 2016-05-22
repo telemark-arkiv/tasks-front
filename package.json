@@ -35,7 +35,7 @@
     "tap": "5.7.1"
   },
   "dependencies": {
-    "boom": "3.2.0",
+    "boom": "3.2.1",
     "chairo": "2.2.1",
     "hapi": "13.4.1",
     "hapi-auth-jwt2": "7.0.0",
