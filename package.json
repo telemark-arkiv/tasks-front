@@ -39,7 +39,7 @@
     "chairo": "2.2.1",
     "hapi": "13.5.0",
     "hapi-auth-jwt2": "7.0.1",
-    "jsonwebtoken": "7.0.1",
+    "jsonwebtoken": "7.1.0",
     "seneca": "2.1.0",
     "seneca-balance-client": "0.5.0",
     "seneca-entity": "1.0.0",
