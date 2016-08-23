@@ -38,7 +38,7 @@
     "boom": "3.2.2",
     "chairo": "2.2.1",
     "hapi": "14.2.0",
-    "hapi-auth-jwt2": "7.1.1",
+    "hapi-auth-jwt2": "7.1.2",
     "jsonwebtoken": "7.1.9",
     "seneca": "2.1.0",
     "seneca-balance-client": "0.5.0",
