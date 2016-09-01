@@ -37,7 +37,7 @@
   "dependencies": {
     "boom": "4.0.0",
     "chairo": "2.2.1",
-    "hapi": "15.0.2",
+    "hapi": "15.0.3",
     "hapi-auth-jwt2": "7.1.2",
     "jsonwebtoken": "7.1.9",
     "seneca": "3.0.0",
