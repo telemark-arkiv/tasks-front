@@ -1,6 +1,6 @@
 {
   "name": "tasks-front",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Public front for our tasks services",
   "license": "MIT",
   "author": {
@@ -17,9 +17,9 @@
     "node": ">=4.6.0"
   },
   "scripts": {
-    "test": "standard && nsp check && tap --reporter=spec test/*.js",
+    "test": "standard && nsp check && tap --reporter=spec test/**/*.js",
     "coverage": "tap test/*.js --coverage",
-    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "coveralls": "tap --cov --coverage-report=lcov test/**/*.js && cat coverage/lcov.info | coveralls",
     "start": "node server.js",
     "isolated": "TASKS_FRONT_ISOLATED=1 node service.js",
     "setup": "npm install && node setup.js",
