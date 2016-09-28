@@ -4,8 +4,8 @@
 #
 ###########################################################
 
-# Setting the base to nodejs 4.4.4
-FROM mhart/alpine-node:4.4.4
+# Setting the base to nodejs 4.6.0
+FROM mhart/alpine-node:4.6.0
 
 # Maintainer
 MAINTAINER Geir Gåsodden
@@ -29,7 +29,7 @@ RUN npm install --production
 
 # Environment
 ENV TASKS_FRONT_PORT 8000
-ENV JWT_SECRET Louie Louie, oh no, I got to go
+ENV JWT_SECRET Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go
 
 EXPOSE 8000
 
