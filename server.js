@@ -49,7 +49,9 @@ server.route(ApiRoutes)
 
 var seneca = server.seneca
 
-seneca.use('mesh', {auto: true})
+if (!process.env.TASKS_FRONT_ISOLATED) {
+  seneca.use('mesh', {auto: true})
+}
 
 seneca.log.info('hapi', server.info)
 
