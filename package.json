@@ -1,6 +1,6 @@
 {
   "name": "tasks-front",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Public front for our tasks services",
   "license": "MIT",
   "author": {
@@ -23,6 +23,7 @@
     "start": "node server.js",
     "isolated": "TASKS_FRONT_ISOLATED=1 node server.js",
     "setup": "npm install && node setup.js",
+    "standard-fix": "standard --fix",
     "generate-test-token": "node utils/generate-test-token.js"
   },
   "repository": {

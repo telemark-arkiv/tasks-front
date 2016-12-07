@@ -3,7 +3,7 @@
 const handlers = require('../handlers/api')
 
 module.exports = [
- {
+  {
     method: 'GET',
     path: '/user/{userid}',
     config: {
