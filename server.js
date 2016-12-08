@@ -8,7 +8,6 @@ var Hapi = require('hapi')
 var Seneca = require('seneca')()
 var validateAPI = require('./lib/validate-api')
 var config = require('./config')
-Seneca.use('entity')
 
 // Our server routes
 var ApiRoutes = require('./routes/api')
