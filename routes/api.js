@@ -6,8 +6,8 @@ module.exports = [
   {
     method: 'GET',
     path: '/user/{userid}',
+    handler: handlers.getUsersTasks,
     config: {
-      handler: handlers.getUsersTasks,
       description: 'Get all tasks for a user'
     }
   }

@@ -5,7 +5,7 @@ var PORT = process.env.TASKS_FRONT_PORT || 8000
 // Our hapi server bits
 var Chairo = require('chairo')
 var Hapi = require('hapi')
-var Seneca = require('seneca')()
+var Seneca = require('seneca')({log: 'silent'})
 var validateAPI = require('./lib/validate-api')
 var config = require('./config')
 
