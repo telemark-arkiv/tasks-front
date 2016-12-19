@@ -1,13 +1,30 @@
 'use strict'
 
-var PORT = process.env.TASKS_FRONT_PORT || 8000
+const PORT = process.env.TASKS_FRONT_PORT || 8000
 
 // Our hapi server bits
-var Chairo = require('chairo')
-var Hapi = require('hapi')
-var Seneca = require('seneca')({log: 'silent'})
-var validateAPI = require('./lib/validate-api')
-var config = require('./config')
+const Chairo = require('chairo')
+const Hapi = require('hapi')
+const Seneca = require('seneca')({log: 'silent'})
+const hapiAuthJwt2 = require('hapi-auth-jwt2')
+const Good = require('good')
+const validateAPI = require('./lib/validate-api')
+const config = require('./config')
+
+const goodOptions = {
+  ops: {
+    interval: 900000
+  },
+  reporters: {
+    console: [{
+      module: 'good-squeeze',
+      name: 'Squeeze',
+      args: [{ log: '*', ops: '*', error: '*' }]
+    }, {
+      module: 'good-console'
+    }, 'stdout']
+  }
+}
 
 // Our server routes
 var ApiRoutes = require('./routes/api')
@@ -19,21 +36,17 @@ function endIfError (error) {
   }
 }
 
-var server = new Hapi.Server()
+const server = new Hapi.Server()
 server.connection({port: PORT})
 
-var plugins = [
-  {register: Chairo, options: {seneca: Seneca}}
+const plugins = [
+  {register: Chairo, options: {seneca: Seneca}},
+  {register: Good, options: goodOptions},
+  {register: hapiAuthJwt2}
 ]
 
-server.register(plugins, function (error) {
+server.register(plugins, (error) => {
   endIfError(error)
-})
-
-server.register(require('hapi-auth-jwt2'), function (err) {
-  if (err) {
-    console.log(err)
-  }
 
   server.auth.strategy('jwt', 'jwt',
     { key: config.JWT_SECRET,          // Never Share your secret key
@@ -42,11 +55,11 @@ server.register(require('hapi-auth-jwt2'), function (err) {
     })
 
   server.auth.default('jwt')
+
+  server.route(ApiRoutes)
 })
 
-server.route(ApiRoutes)
-
-var seneca = server.seneca
+const seneca = server.seneca
 
 if (!process.env.TASKS_FRONT_ISOLATED) {
   seneca.use('mesh', {auto: true})
