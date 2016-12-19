@@ -5,7 +5,9 @@ const PORT = process.env.TASKS_FRONT_PORT || 8000
 // Our hapi server bits
 const Chairo = require('chairo')
 const Hapi = require('hapi')
-const Seneca = require('seneca')()
+const legacyLogger = require('seneca-legacy-logger')
+const senecaConfig = {internal: {logger: legacyLogger}}
+const Seneca = require('seneca')(senecaConfig)
 const hapiAuthJwt2 = require('hapi-auth-jwt2')
 const Good = require('good')
 const validateAPI = require('./lib/validate-api')
