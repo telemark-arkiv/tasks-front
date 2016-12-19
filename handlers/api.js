@@ -11,8 +11,9 @@ module.exports.getUsersTasks = (request, reply) => {
     if (error) {
       console.log(`tasks-front: error request tasks for ${user} - ${JSON.stringify(error)}`)
       return reply({user: user, data: []})
+    } else {
+      console.log(`tasks-front: returns tasks for ${user} - found ${data.data.length}`)
+      return reply(data)
     }
-    console.log(`tasks-front: returns tasks for ${user} - found ${data.data.length}`)
-    return reply(data)
   })
 }

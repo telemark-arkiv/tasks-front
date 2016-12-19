@@ -5,7 +5,7 @@ const PORT = process.env.TASKS_FRONT_PORT || 8000
 // Our hapi server bits
 const Chairo = require('chairo')
 const Hapi = require('hapi')
-const Seneca = require('seneca')({log: 'silent'})
+const Seneca = require('seneca')()
 const hapiAuthJwt2 = require('hapi-auth-jwt2')
 const Good = require('good')
 const validateAPI = require('./lib/validate-api')
@@ -13,13 +13,13 @@ const config = require('./config')
 
 const goodOptions = {
   ops: {
-    interval: 900000
+    interval: 10000
   },
   reporters: {
     console: [{
       module: 'good-squeeze',
       name: 'Squeeze',
-      args: [{ log: '*', ops: '*', error: '*' }]
+      args: [{ 'log': '*', 'ops': '*', 'error': '*', 'response': '*' }]
     }, {
       module: 'good-console'
     }, 'stdout']
@@ -27,7 +27,7 @@ const goodOptions = {
 }
 
 // Our server routes
-var ApiRoutes = require('./routes/api')
+const ApiRoutes = require('./routes/api')
 
 function endIfError (error) {
   if (error) {
