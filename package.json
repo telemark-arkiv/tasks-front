@@ -3,6 +3,7 @@
   "version": "2.1.9",
   "description": "Public front for our tasks services",
   "license": "MIT",
+  "private": true,
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
