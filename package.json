@@ -1,6 +1,6 @@
 {
   "name": "tasks-front",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "Public front for our tasks services",
   "license": "MIT",
   "private": true,
